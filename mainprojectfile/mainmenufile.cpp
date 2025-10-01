@@ -1,7 +1,7 @@
 ﻿#include <iostream>
 using namespace std;
 FILE* openingamefile() {
-    FILE* file = fopen("ingame.cpp", "a+");
+    FILE* file = fopen_s("ingame.cpp", "a+");
     if (!file) {
         cout << "error when reading file";
     }
@@ -9,7 +9,6 @@ FILE* openingamefile() {
 }
 int main() {
     int choice;
-    FILE* file;
     while (true) {
         for (int i = 0; i < 50; i++) {
             cout << endl; //screen clear
