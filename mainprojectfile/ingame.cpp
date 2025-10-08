@@ -42,7 +42,83 @@ void attributemenu(int& strength, int& agility, int& intelligence) {
     cin.ignore();
     cin.get();
 }
-
+void monster(int& strength, int& agility, int& intelligence) {
+    clear();
+    cout << "======================================" << endl;
+    cout << "   you hear a growl in the forest  " << endl;
+    cout << "======================================" << endl;
+    cout << "a wild Goblin appears!" << endl;
+    cout << endl;
+    cout << "what will you do?" << endl;
+    cout << "   [1] fight like a real man" << endl;
+    cout << "   [2] run away like a scared chicken" << endl;
+    cout << "enter your choice: ";
+    int choice;
+    cin >> choice;
+    if (choice == 2) {
+        clear();
+        cout << "You sprint down the forest path, escaping the goblin!" << endl;
+        cout << "After a while, you arrive at the entrance to a dark dungeon..." << endl;
+        cout << "Press enter to continue...";
+        cin.ignore();
+        cin.get();
+        return;
+    }
+    clear();
+    cout << "the battle has begun" << endl;
+    cout << "action:" << endl;
+    cout << "   [1] smash with brute force (requires strength >= 8)" << endl;
+    cout << "   [2] dodge and counter (requires agility >= 8)" << endl;
+    cout << "   [3] cast a spell (requires intelligence >= 8)" << endl;
+    cout << "enter your action: ";
+    int action;
+    cin >> action;
+    bool survived = false;
+    switch (action) {
+        case 1:
+            if (strength >= 8) {
+                cout << "you brute force the goblin and defeat it" << endl;
+                survived = true;
+                strength += 2; agility += 1; intelligence += 1;
+            } else {
+                cout << "you're not strong enough so you lose" << endl;
+            }
+            break;
+        case 2:
+            if (agility >= 8) {
+                cout << "you dodged and countered" << endl;
+                survived = true;
+                agility += 2; strength += 1; intelligence += 1;
+            } else {
+                cout << "too slow brud the goblin catches up" << endl;
+            }
+            break;
+        case 3:
+            if (intelligence >= 8) {
+                cout << "you cast a spell and defeat the goblin" << endl;
+                survived = true;
+                intelligence += 2; strength += 1; agility += 1;
+            } else {
+                cout << "your spell kinda bad so you die" << endl;
+            }
+            break;
+        default:
+            cout << "you hesitate and the goblin attacks you" << endl;
+            break;
+    }
+    if (survived) {
+        cout << "you won! attribute increase:" << endl;
+        cout << "strength:     " << strength << endl;
+        cout << "agility:      " << agility << endl;
+        cout << "intelligence: " << intelligence << endl;
+        cout << "press enter to continue" << endl;
+    } else {
+        cout << "you died haha" << endl;
+        cout << "enter to exit like a hobo" << endl;
+    }
+    cin.ignore();
+    cin.get();
+}
 int main() {
     int strength = 0, agility = 0, intelligence = 0;
     attributemenu(strength, agility, intelligence);
@@ -57,8 +133,9 @@ int main() {
     cout << "intelligence: " << intelligence << endl;
     cout << endl;
     cout << "your rpg adventure is beninging..." << endl;
-    cout << "(конец кода пока что введи любую цифру чтобы вернуться в меню): ";
-    int temp;
-    cin >> temp;
+    cout << "press enter to continue..." << endl;
+    cin.ignore();
+    cin.get();
+    monster(strength, agility, intelligence);
     return 0;
 }
