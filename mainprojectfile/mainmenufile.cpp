@@ -1,7 +1,7 @@
 ﻿#include <iostream>
 using namespace std;
 FILE* openingamefile() {
-    FILE* file = fopen_s("ingame.cpp", "a+");
+    FILE* file = fopen("ingame.cpp", "a+");
     if (!file) {
         cout << "error when reading file";
     }
