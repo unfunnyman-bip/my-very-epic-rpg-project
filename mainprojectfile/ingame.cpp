@@ -19,5 +19,6 @@ int main() {
     cin.ignore();
     cin.get();
     monster(strength, agility, intelligence);
+    dungeon(strength, agility, intelligence);
     return 0;
 }

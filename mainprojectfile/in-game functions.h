@@ -60,9 +60,9 @@ void monster(int& strength, int& agility, int& intelligence) {
     cin >> choice;
     if (choice == 2) {
         clear();
-        cout << "You sprint down the forest path, escaping the goblin!" << endl;
-        cout << "After a while, you arrive at the entrance to a dark dungeon..." << endl;
-        cout << "Press enter to continue...";
+        cout << "you sprint down the forest path escaping the goblin!" << endl;
+        cout << "after a while you arrive at the entrance to a dark dungeon..." << endl;
+        cout << "press enter to continue...";
         cin.ignore();
         cin.get();
         return;
@@ -123,6 +123,60 @@ void monster(int& strength, int& agility, int& intelligence) {
         cout << "you died haha" << endl;
         cout << "enter to exit like a hobo" << endl;
     }
+    cin.ignore();
+    cin.get();
+}
+void dungeon(int& strength, int& agility, int& intelligence) {
+    clear();
+    cout << "======================================" << endl;
+    cout << "        dark dungeon             " << endl;
+    cout << "======================================" << endl;
+    cout << endl;
+    cout << "you descend into the dark dungeon..." << endl;
+    cout << "after navigating treacherous corridors," << endl;
+    cout << "you find the legendary treasure room!" << endl;
+    cout << endl;
+    cout << "what will you do with the treasure?" << endl;
+    cout << "   [1] take it all (greedy)" << endl;
+    cout << "   [2] share with village (wise)" << endl;
+    cout << "   [3] leave it (cautious)" << endl;
+    cout << "enter your choice: ";
+    int choice;
+    cin >> choice;
+    clear();
+    cout << "======================================" << endl;
+    cout << "         your adventure is complete          " << endl;
+    cout << "======================================" << endl;
+    cout << endl;
+    switch (choice) {
+    case 1:
+        cout << "you become the richest person in the land!" << endl;
+        cout << "but you live looking over your shoulder..." << endl;
+        strength += 5; agility += 3; intelligence -= 2;
+        break;
+    case 2:
+        cout << "the village hails you as a hero!" << endl;
+        cout << "you live comfortably and respected." << endl;
+        intelligence += 5; strength += 2; agility += 2;
+        break;
+    case 3:
+        cout << "you leave the treasure untouched." << endl;
+        cout << "your legend grows through your wisdom." << endl;
+        agility += 5; intelligence += 3; strength += 1;
+        break;
+    default:
+        cout << "you hesitate and the treasure vanishes!" << endl;
+        cout << "at least you survived the adventure." << endl;
+        break;
+    }
+    cout << endl;
+    cout << "final attributes:" << endl;
+    cout << "strength:     " << strength << endl;
+    cout << "agility:      " << agility << endl;
+    cout << "intelligence: " << intelligence << endl;
+    cout << endl;
+    cout << "thanks for playing!" << endl;
+    cout << "press enter to return to main menu...";
     cin.ignore();
     cin.get();
 }
